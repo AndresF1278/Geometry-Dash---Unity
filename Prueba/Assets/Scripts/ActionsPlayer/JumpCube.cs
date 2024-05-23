@@ -13,9 +13,11 @@ public class JumpCube : MonoBehaviour
     [SerializeField] private bool isGrounded = true;
     [SerializeField] private Vector3 ScaleDetect;
     [SerializeField] private GameObject check;
+     private PlayerControllers playerControllers;
 
     void Start()
     {
+        playerControllers = GetComponent<PlayerControllers>();
 
         if (NearGround())
         {
@@ -32,7 +34,7 @@ public class JumpCube : MonoBehaviour
     {
         near = NearGround();
 
-        if ( isGrounded && NearGround())
+        if ( isGrounded && NearGround() )
         {
            
             if (Input.GetKey(KeyCode.Space) || Input.GetMouseButtonDown(0))
@@ -43,7 +45,7 @@ public class JumpCube : MonoBehaviour
         }
 
         // Saltar cuando se presiona la tecla de espacio y el jugador está en el suelo
-        if (  isGrounded && NearGround())
+        if (  isGrounded && NearGround() && !playerControllers.DetectOrb())
         {
             if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0))
             {

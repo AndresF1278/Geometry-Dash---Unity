@@ -10,9 +10,11 @@ public class BallMove : MonoBehaviour
     [SerializeField] private bool timeBool;
     [SerializeField] private float timeBuffer = 0.2f;
     [SerializeField] private GameObject body;
+    [SerializeField] private PlayerControllers playerController;
 
     private void Start()
     {
+        playerController = GetComponent<PlayerControllers>();
         timer = 0;
         timeBool = false;
     }
@@ -39,7 +41,7 @@ public class BallMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) )
         {
-            if( Ground && NearGround())
+            if( Ground && NearGround() && !playerController.DetectOrb())
             {
                 GravityChange();
             }

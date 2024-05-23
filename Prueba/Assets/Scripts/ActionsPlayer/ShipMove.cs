@@ -8,27 +8,33 @@ public class ShipMove : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] GameObject body;
     [SerializeField] GameObject bodyCube;
+    [SerializeField] PlayerControllers playerController;
 
 
     private void Start()
     {
+        playerController = GetComponent<PlayerControllers>();
          rb = GetComponent<Rigidbody>();        
     }
     private void Update()
     {
+
+
+
+
         if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
         {
-            if(Physics.gravity.y > 0)
-            {
-                rb.velocity += new Vector3(0, -speed * Time.deltaTime, 0);
-            }
-            else
-            {
-                rb.velocity += new Vector3(0, speed * Time.deltaTime, 0);
-            }
-          
-           
-            
+
+                if (Physics.gravity.y > 0)
+                {
+                    rb.velocity += new Vector3(0, -speed * Time.deltaTime, 0);
+                }
+                else
+                {
+                    rb.velocity += new Vector3(0, speed * Time.deltaTime, 0);
+                }
+
+
         }
         //rb.velocity = new Vector3(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -18, 18), rb.velocity.z);
         body.transform.rotation = Quaternion.Euler(rb.velocity.y, 180f, transform.rotation.z);

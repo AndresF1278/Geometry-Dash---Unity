@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class Orbs : MonoBehaviour
 {
     public float forceJump;
-
+    private Vector3 originalScale;
+    private Vector3 scaleTo;
   public enum TypeOrbs
     {
        purple,
        yellow,
        blue,
+    }
+
+    private void Start()
+    {
+        originalScale = transform.localScale;
     }
 
     [SerializeField] public TypeOrbs typeOrb;
@@ -58,6 +64,26 @@ public class Orbs : MonoBehaviour
             default:
                 break;
         }
+        GetComponent<BoxCollider>().enabled = false;
+        Animation();
+    }
+
+
+    private void Animation()
+    {
+
+        
+        scaleTo = originalScale * 1.3f;
+
+        transform.DOScale(scaleTo, 0.1f)
+       .OnComplete(() =>
+       {
+
+
+           transform.DOScale(originalScale, 0.5f);
+       });
+
+
     }
 
 

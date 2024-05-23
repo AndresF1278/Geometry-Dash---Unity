@@ -76,7 +76,7 @@ public class PlayerControllers : MonoBehaviour
     }
 
 
-    private bool DetectOrb()
+    public bool DetectOrb()
     {
         Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one/ 2, Quaternion.identity, layerOrbs);
         
