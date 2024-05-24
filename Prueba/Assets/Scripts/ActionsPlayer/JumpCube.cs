@@ -106,6 +106,7 @@ public class JumpCube : MonoBehaviour
            
         }
     }
+
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
