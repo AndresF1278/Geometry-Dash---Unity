@@ -60,6 +60,7 @@ public class Orbs : MonoBehaviour
                 break;
             case TypeOrbs.blue:
                 EffectBlue(rb);
+                rb.velocity = Vector3.zero;
                 break;
             default:
                 break;
@@ -71,7 +72,6 @@ public class Orbs : MonoBehaviour
 
     private void Animation()
     {
-
         
         scaleTo = originalScale * 1.3f;
 
@@ -83,8 +83,5 @@ public class Orbs : MonoBehaviour
            transform.DOScale(originalScale, 0.5f);
        });
 
-
     }
-
-
 }
