@@ -2932,8 +2932,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GEOMETRY DASH
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bad38433133309944a76fa9183fb67fd, type: 2}
-  m_sharedMaterial: {fileID: -5714017903143419101, guid: bad38433133309944a76fa9183fb67fd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 51c2cfe18400be844bd5edd9b41ed3dc, type: 2}
+  m_sharedMaterial: {fileID: -2809702320132575493, guid: 51c2cfe18400be844bd5edd9b41ed3dc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2957,8 +2957,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 125
-  m_fontSizeBase: 125
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
