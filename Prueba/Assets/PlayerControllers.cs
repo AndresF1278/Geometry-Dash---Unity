@@ -14,6 +14,8 @@ public class PlayerControllers : MonoBehaviour
     [SerializeField] private float gravitySpeed;
     [SerializeField] private LayerMask layerOrbs;
     private Orbs currentOrb;
+
+
     public void ChangeGravityPlayer()
     {
         gravityNormal = !gravityNormal;

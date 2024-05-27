@@ -13,6 +13,7 @@ public class ShipMove : MonoBehaviour
 
     private void Start()
     {
+        PortalManager.instance.currentVehicleType = typesPortal.portalShip;
         playerController = GetComponent<PlayerControllers>();
          rb = GetComponent<Rigidbody>();        
     }

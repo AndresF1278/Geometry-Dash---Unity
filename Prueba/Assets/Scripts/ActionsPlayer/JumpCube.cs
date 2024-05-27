@@ -17,6 +17,8 @@ public class JumpCube : MonoBehaviour
 
     void Start()
     {
+        PortalManager.instance.currentVehicleType = typesPortal.portalCube;
+
         playerControllers = GetComponent<PlayerControllers>();
 
         if (NearGround())

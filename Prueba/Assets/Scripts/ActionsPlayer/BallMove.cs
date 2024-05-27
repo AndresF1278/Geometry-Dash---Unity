@@ -15,6 +15,7 @@ public class BallMove : MonoBehaviour
 
     private void Start()
     {
+        PortalManager.instance.currentVehicleType = typesPortal.portalBall;
         playerController = GetComponent<PlayerControllers>();
         timer = 0;
         timeBool = false;
