@@ -8,9 +8,4 @@ public class pruebaSonido : MonoBehaviour
     {
         AudioManager.instance.PlayAudio(1);
     }
-
-    void Update()
-    {
-        
-    }
 }

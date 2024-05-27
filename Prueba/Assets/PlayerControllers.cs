@@ -66,14 +66,14 @@ public class PlayerControllers : MonoBehaviour
     {
         transform.position += new Vector3(0, 0, speed * Time.deltaTime);
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            
-            SceneController.instance.ResetScene();
-        }
-    }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Obstacle"))
+    //    {
+    //        GameManager.Instance.ResetLevel();
+    //    }
+    //}
 
 
     public bool DetectOrb()

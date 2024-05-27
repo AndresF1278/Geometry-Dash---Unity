@@ -1,23 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameObject prefabCube, prefabShip, prefabBall;
+
+    [SerializeField] private int numDeath = 0;
+
+    public int NumDeath => numDeath; 
+
     private void Awake(){
         if(Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if(Instance != this)
         {
-            Destroy(Instance);
+            Destroy(gameObject);
+            return;
         }
     }
-
 
     public void OnPause(bool pause = true){
 
@@ -32,5 +38,11 @@ public class GameManager : MonoBehaviour
         OnPause();
     }
 
+    public void ResetLevel()
+    {
+        numDeath++;
+        Debug.LogWarning($"INTENTO NUMERO: {numDeath}");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
 }

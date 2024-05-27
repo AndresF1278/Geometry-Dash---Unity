@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 1833851392877283353}
   - component: {fileID: 3928852459528969860}
   - component: {fileID: 8844238322041056463}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BallGame
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -160,6 +160,7 @@ MonoBehaviour:
   timeBool: 0
   timeBuffer: 0.1
   body: {fileID: 921426284293796445}
+  playerController: {fileID: 0}
 --- !u!54 &8844238322041056463
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -57,4 +57,5 @@ public class CanvasManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
 }

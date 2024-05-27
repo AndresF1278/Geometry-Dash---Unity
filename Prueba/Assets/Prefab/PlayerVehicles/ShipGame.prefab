@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6597017682059040517}
   - component: {fileID: 2586195981650362437}
   - component: {fileID: 3812666550081046561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShipGame
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -151,6 +151,7 @@ MonoBehaviour:
   speed: 180
   body: {fileID: 9037447514985827169}
   bodyCube: {fileID: 1637901690669014113}
+  playerController: {fileID: 0}
 --- !u!1 &7450070210527367651
 GameObject:
   m_ObjectHideFlags: 0
