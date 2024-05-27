@@ -72,7 +72,7 @@ public class Orbs : MonoBehaviour
 
     private void Animation()
     {
-        
+
         scaleTo = originalScale * 1.3f;
 
         transform.DOScale(scaleTo, 0.1f)
