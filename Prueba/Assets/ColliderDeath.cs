@@ -8,7 +8,10 @@ public class ColliderDeath : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
-            GameManager.Instance.ResetLevel();
+            gameObject.GetComponentInParent<PlayerControllers>().Death();
+            
         }
     }
+
+   
 }

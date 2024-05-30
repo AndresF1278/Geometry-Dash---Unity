@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public enum typesPortal
 {
@@ -35,8 +36,24 @@ public class PortalManager : MonoBehaviour
     }
 
     private GameObject ParticlePurple, ParticleRed, ParticleGreen;
+    private GameObject ParticlePurpleInstance, ParticleRedInstance, ParticleGreenInstance;
 
-   public  void PortalChangeVehicle(GameObject other , typesPortal typePortal, GameObject portal)
+
+    private void Start()
+    {
+       
+        ParticleRedInstance =  Instantiate(prefabParticleBall, Vector3.zero, Quaternion.identity);
+        ParticlePurpleInstance =  Instantiate(prefabParticleShip, Vector3.zero, Quaternion.identity);
+        ParticleGreenInstance =  Instantiate(prefabParticleCube, Vector3.zero, Quaternion.identity);
+
+        ParticleRedInstance.SetActive(false);
+        ParticleGreenInstance.SetActive(false);
+        ParticlePurpleInstance.SetActive(false);
+
+
+    }
+
+    public  void PortalChangeVehicle(GameObject other , typesPortal typePortal, GameObject portal)
     {
        
             GameObject currentVehicle = other.gameObject;
@@ -96,17 +113,26 @@ public class PortalManager : MonoBehaviour
         switch (type)
         {
             case typesPortal.portalBall:
-                 Instantiate(prefabParticleBall, position, Quaternion.identity);
+                ParticleRedInstance.SetActive(false);
+                ParticleRedInstance.transform.position = position;
+                ParticleRedInstance.SetActive(true);
                 break;
             case typesPortal.portalShip:
-                Instantiate( prefabParticleShip, position, Quaternion.identity);
+                ParticlePurpleInstance.SetActive(false);
+                ParticlePurpleInstance.transform.position = position;
+                ParticlePurpleInstance.SetActive(true);
                 break;
             case typesPortal.portalCube:
-                Instantiate(prefabParticleCube, position, Quaternion.identity);
+                ParticlePurpleInstance.SetActive(false);
+                ParticleGreenInstance.transform.position = position;
+                ParticleGreenInstance.SetActive(true);
                 break;
         }
 
     }
+    
+       
+       
 
 
 

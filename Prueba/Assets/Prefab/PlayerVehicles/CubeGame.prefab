@@ -87,6 +87,9 @@ MonoBehaviour:
   layerOrbs:
     serializedVersion: 2
     m_Bits: 128
+  ParticleDeath: {fileID: 6556670272840722353, guid: 6c1e6fef0f78f584b86ddb77b31a51c0, type: 3}
+  modelsPlayer:
+  - {fileID: 1710435844952880000}
 --- !u!65 &979301230158454455
 BoxCollider:
   m_ObjectHideFlags: 0

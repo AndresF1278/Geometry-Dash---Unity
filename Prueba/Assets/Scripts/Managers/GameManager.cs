@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameObject prefabCube, prefabShip, prefabBall;
 
-    [SerializeField] private int numDeath = 0;
+    [SerializeField] private int numDeath = 1;
 
     public int NumDeath => numDeath; 
 

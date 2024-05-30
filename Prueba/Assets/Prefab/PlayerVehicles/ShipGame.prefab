@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2569584934202958142}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CubePivot
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6597017682059040517}
   - component: {fileID: 2586195981650362437}
   - component: {fileID: 3812666550081046561}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: ShipGame
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -109,6 +109,10 @@ MonoBehaviour:
   layerOrbs:
     serializedVersion: 2
     m_Bits: 128
+  ParticleDeath: {fileID: 6556670272840722353, guid: 6c1e6fef0f78f584b86ddb77b31a51c0, type: 3}
+  modelsPlayer:
+  - {fileID: 9037447514985827169}
+  - {fileID: 6768281725244113470}
 --- !u!54 &2586195981650362437
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -163,12 +167,12 @@ GameObject:
   - component: {fileID: 2027487085985566246}
   - component: {fileID: 4826934076911197261}
   - component: {fileID: 289520734021584522}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ColliderDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2027487085985566246
 Transform:
@@ -282,6 +286,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 690236689855778235, guid: cac1b97232636384b879f7da7ec78c95, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2613320855335445404, guid: cac1b97232636384b879f7da7ec78c95, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397142354035900323, guid: cac1b97232636384b879f7da7ec78c95, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809995301169577589, guid: cac1b97232636384b879f7da7ec78c95, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597605858703255418, guid: cac1b97232636384b879f7da7ec78c95, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013361396091721786, guid: cac1b97232636384b879f7da7ec78c95, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -290,6 +318,11 @@ PrefabInstance:
 --- !u!4 &6243700963518044292 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 207137203317102337, guid: cac1b97232636384b879f7da7ec78c95, type: 3}
+  m_PrefabInstance: {fileID: 6087163287499837317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6768281725244113470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 690236689855778235, guid: cac1b97232636384b879f7da7ec78c95, type: 3}
   m_PrefabInstance: {fileID: 6087163287499837317}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8190393438273451568
@@ -356,13 +389,29 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9562155941b8c8340b828e833eb61e3d, type: 2}
+    - target: {fileID: -1599826595754709761, guid: b5c3d467eec4358419c9891ccd45cf26, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: b5c3d467eec4358419c9891ccd45cf26, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8d077b608ffca0645948d471fe78ccc2, type: 2}
+    - target: {fileID: -516098083770646512, guid: b5c3d467eec4358419c9891ccd45cf26, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b5c3d467eec4358419c9891ccd45cf26, type: 3}
       propertyPath: m_Name
       value: Ship (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b5c3d467eec4358419c9891ccd45cf26, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821623529969584324, guid: b5c3d467eec4358419c9891ccd45cf26, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

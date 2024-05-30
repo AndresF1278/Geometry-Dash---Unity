@@ -14,7 +14,8 @@ public class PlayerControllers : MonoBehaviour
     [SerializeField] private float gravitySpeed;
     [SerializeField] private LayerMask layerOrbs;
     private Orbs currentOrb;
-
+    public GameObject ParticleDeath;
+    public List<GameObject>  modelsPlayer;
 
     public void ChangeGravityPlayer()
     {
@@ -96,6 +97,21 @@ public class PlayerControllers : MonoBehaviour
         
     }
 
+    public void Death()
+    {
+        foreach (GameObject item in modelsPlayer)
+        {
+            item.SetActive(false);
+        }
+        speed = 0;
+       GameObject ParticleDeathInstance = Instantiate(ParticleDeath, transform.position, Quaternion.identity);
+        StartCoroutine(TimeToDeath());
+    }
+    IEnumerator TimeToDeath()
+    {
+        yield return new WaitForSeconds(0.6f);
+        GameManager.Instance.ResetLevel();
+    }
 
     void OnDrawGizmos()
     {
