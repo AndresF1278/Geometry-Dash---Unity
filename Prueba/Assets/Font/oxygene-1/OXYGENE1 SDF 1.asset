@@ -11,7 +11,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - GLOW_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -59,8 +60,8 @@ Material:
     - _FaceDilate: 0
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
-    - _GlowInner: 0.05
-    - _GlowOffset: 0
+    - _GlowInner: 0.585
+    - _GlowOffset: 1
     - _GlowOuter: 0.05
     - _GlowPower: 0.75
     - _GradientScale: 10
@@ -74,7 +75,7 @@ Material:
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
-    - _ScaleRatioB: 0.73125
+    - _ScaleRatioB: 0.6964286
     - _ScaleRatioC: 0.73125
     - _ScaleX: 1
     - _ScaleY: 1
@@ -166,11 +167,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: OXYGENE1 SDF
+  m_Name: OXYGENE1 SDF 1
   m_EditorClassIdentifier: 
-  hashCode: 522547207
+  hashCode: 2118224278
   material: {fileID: -2809702320132575493}
-  materialHashCode: 229115975
+  materialHashCode: -1873897610
   m_Version: 1.1.0
   m_SourceFontFileGUID: 1da519c3e57870e418140ff2dd1b9b16
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 1da519c3e57870e418140ff2dd1b9b16, type: 3}
