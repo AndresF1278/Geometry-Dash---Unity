@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void OnPause(bool pause = true){
 
         if (!pause) 

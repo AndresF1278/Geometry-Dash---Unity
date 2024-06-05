@@ -6,6 +6,6 @@ public class pruebaSonido : MonoBehaviour
 {
     void Start()
     {
-        AudioManager.instance.PlayAudio(1);
+   
     }
 }

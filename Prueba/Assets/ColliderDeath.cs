@@ -9,7 +9,7 @@ public class ColliderDeath : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             gameObject.GetComponentInParent<PlayerControllers>().Death();
-            
+            GetComponent<Collider>().enabled = false;
         }
     }
 

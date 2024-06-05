@@ -1,96 +1,128 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
-[Serializable]
-public class AudioParams
-{
-    public int ID;
-    public AudioClip AudioClip;
-    public String Description;
-}
 
-[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField]
-    private List <AudioParams> audioParams = new List<AudioParams>();
-    private Dictionary<int, AudioParams> audioParamsDict = new Dictionary<int, AudioParams>();
+    public static AudioManager instance;
 
-    AudioSource audioSource;
+    public Soundss[] musicSounds;
+    public Soundss[] sfxSound;
+    public AudioSource musicSource, sfxSource;
 
-    public static AudioManager instance { get; private set; }
+    private float currentMusicVolume = 1f; // Volumen actual de la música
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-
-        foreach(var param in audioParams)
+        if (instance != null)
         {
-            audioParamsDict[param.ID] = param;
+            Destroy(this);
         }
-
-        if (instance == null)
+        else
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
     }
 
-    private AudioClip GetAudioByID(int id)
+    private void Start()
     {
-        if(audioParamsDict.TryGetValue(id, out var audioParams))
+        musicSource.volume = currentMusicVolume;
+        sfxSource.volume = 1f;
+        PlayMusic("Level1");
+    }
+
+
+    public void PlayMusic(string name)
+    {
+        Soundss s = Array.Find(musicSounds, x => x.nameSound == name);
+
+        if (s == null)
         {
-            return audioParams.AudioClip;
-
-        }else {
-            UnityEngine.Debug.LogWarning($"NO SE ENCONTRO AUDIO! REVISAR ID {id}");
-            return null;
+            Debug.Log("Sound not found");
+        }
+        else
+        { 
+            if(musicSource.clip == null)
+            {
+                StartCoroutine(CrossfadeMusic(s.clip, 0.0f)); // Inicia la transición gradual
+            }
+            else
+            {
+                StartCoroutine(CrossfadeMusic(s.clip, 1f));
+            }
+          
         }
     }
 
-    public void PlayAudioWithSource(int ID, AudioSource source, bool isLoop = false) {
+    private IEnumerator CrossfadeMusic(AudioClip newClip, float fadeDuration )
+    {
+        float startVolume = musicSource.volume;
+        float elapsedTime = 0.0f;
 
-        if (source == null) { 
-            UnityEngine.Debug.LogWarning("AudioSource no asignado."); 
-            return;
-        } 
-
-        AudioClip audio = GetAudioByID(ID);
-        if (audio == null) return;
-
-        source.loop = isLoop;
-        source.clip = audio;
-        source.Play();
-
-    }
-
-    public void PlayAudio(int ID) {
-
-        if (audioSource.isPlaying) { 
-           audioSource.Stop();
+        while (elapsedTime < fadeDuration)
+        {
+            musicSource.volume = Mathf.Lerp(startVolume, 0.0f, elapsedTime / fadeDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
 
-        AudioClip audio = GetAudioByID(ID);
-        if (audio == null) return;
+        musicSource.volume = 0.0f;
+        musicSource.Stop();
 
-        audioSource.clip = audio;
-        audioSource.Play();
+        musicSource.clip = newClip;
+        musicSource.Play();
+
+        while (elapsedTime < fadeDuration)
+        {
+            musicSource.volume = Mathf.Lerp(0.0f, currentMusicVolume, elapsedTime / fadeDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        musicSource.volume = currentMusicVolume;
     }
 
-    public void StopAudio(){
-        if (!audioSource.isPlaying) return;
-        audioSource.Stop();
+    public void playSfx(string name)
+    {
+        Soundss s = Array.Find(sfxSound, x => x.nameSound == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound not found");
+        }
+        else
+        {
+            sfxSource.PlayOneShot(s.clip);
+        }
     }
 
+    public void ToggleMusic()
+    {
+        musicSource.mute = !musicSource.mute;
+    }
+
+    public void ToggleSFX()
+    {
+        sfxSource.mute = !sfxSource.mute;
+    }
+
+    public void MusicVolume(float volume)
+    {
+        currentMusicVolume = volume; // Actualiza el volumen actual de la música
+        musicSource.volume = volume;
+    }
+
+    public void SFXVolume(float volume)
+    {
+        sfxSource.volume = volume;
+    }
 }
 
+[System.Serializable]
+public class Soundss
+{
+    public string nameSound;
+    public AudioClip clip;
+}

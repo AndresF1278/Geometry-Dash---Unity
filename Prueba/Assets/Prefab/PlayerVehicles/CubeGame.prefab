@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30649e79a8e9b0a43a52c625828cbea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 9
   gravityNormal: 0
   gravitySpeed: 0
   layerOrbs:
@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791f84214df64024e90b5f131d4a5e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 23
-  rotationSpeed: 370
+  jumpForce: 19.7
+  rotationSpeed: 420
   Speed: 100
   floor:
     serializedVersion: 2
@@ -222,7 +222,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -281,7 +281,8 @@ PrefabInstance:
       value: Cube
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5397142354035900323, guid: cac1b97232636384b879f7da7ec78c95, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cac1b97232636384b879f7da7ec78c95, type: 3}

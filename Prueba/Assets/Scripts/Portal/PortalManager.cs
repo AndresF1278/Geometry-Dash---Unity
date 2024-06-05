@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
-using UnityEngine.UIElements;
+
 
 public enum typesPortal
 {
@@ -27,7 +24,7 @@ public class PortalManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+         
         }
         else
         {

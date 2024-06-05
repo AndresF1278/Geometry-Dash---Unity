@@ -10,6 +10,7 @@ public class TriggerPlatformCollider : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             BoxCollider.enabled = true;
+            GetComponent<Collider>().enabled = false;
         }
         
     }

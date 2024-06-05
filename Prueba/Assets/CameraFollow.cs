@@ -10,7 +10,11 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.FindAnyObjectByType<PlayerControllers>().transform;
+        if(target == null)
+        {
+            target = GameObject.FindAnyObjectByType<PlayerControllers>().transform;
+        }
+       
     }
 
 

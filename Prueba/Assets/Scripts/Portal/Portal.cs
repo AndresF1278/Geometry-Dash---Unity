@@ -22,6 +22,7 @@ public class Portal : MonoBehaviour
                 Vector3 collisionPoint = other.ClosestPoint(transform.position);
                 PortalManager.instance.ActivateParticle(typePortal, collisionPoint);
             }
+                
 
             PortalManager.instance.PortalChangeVehicle(other.gameObject, typePortal, gameObject);
 

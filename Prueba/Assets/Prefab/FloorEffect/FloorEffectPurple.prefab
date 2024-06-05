@@ -5088,5 +5088,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f6af786f185a94d8a6f13748bdca70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceJump: 18
+  forceJump: 20
   typeOrb: 0

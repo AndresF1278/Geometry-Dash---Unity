@@ -63,6 +63,11 @@ public class PlayerControllers : MonoBehaviour
                 currentOrb.SelectMethodEffect(GetComponent<Rigidbody>());
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Death();
+        }
     }
 
     private void FixedUpdate()
@@ -99,18 +104,26 @@ public class PlayerControllers : MonoBehaviour
 
     public void Death()
     {
+        AudioManager.instance.musicSource.Stop();
+        AudioManager.instance.musicSource.time = 0;
+        AudioManager.instance.playSfx("Death");
         foreach (GameObject item in modelsPlayer)
         {
             item.SetActive(false);
         }
         speed = 0;
        GameObject ParticleDeathInstance = Instantiate(ParticleDeath, transform.position, Quaternion.identity);
+        
         StartCoroutine(TimeToDeath());
+
     }
     IEnumerator TimeToDeath()
     {
         yield return new WaitForSeconds(0.6f);
+        
         GameManager.Instance.ResetLevel();
+
+        AudioManager.instance.musicSource.Play();
     }
 
     void OnDrawGizmos()
