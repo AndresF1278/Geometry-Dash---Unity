@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Prueba/Assets/Prefab/Decoration.meta
 guid: 6eaa97d5cc060ff47be9f6864e59ebcb
 folderAsset: yes
+========
+guid: 6d66b96ec859ec54daf78f584c22c5f7
+>>>>>>>> parent of 886a2cc (UI):Prueba/Assets/Scenes/Level1.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

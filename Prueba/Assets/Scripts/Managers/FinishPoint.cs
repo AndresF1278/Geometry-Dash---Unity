@@ -19,7 +19,6 @@ public class FinishPoint : MonoBehaviour
         if (other.tag == "Player")
         {
             GameManager.Instance.FinishLevel();
-            Debug.Log("END LEVEL");
         }
     }
 }
