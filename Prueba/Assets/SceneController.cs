@@ -19,6 +19,57 @@ public class SceneController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        GameManager.Instance.StartLevel += GoToLevel;
+        GameManager.Instance.ResetLevel += GoToLevelOne;
+        GameManager.Instance.MainMenu += GoToMenu;
+
+
+
+    }
+
+    public void GoToLevelOne()
+    {
+        SceneManager.LoadScene("Level1");
+        AudioManager.instance.musicSource.clip = null;
+        AudioManager.instance.PlayMusic("Level1", true);
+        
+    }
+
+    IEnumerator TimeToScene()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GoToLevelOne();
+        AudioManager.instance.musicSource.clip = null;
+       AudioManager.instance.PlayMusic("Level1", true);
+    }
+
+
+    private void GointToMainMenu()
+    {
+        SceneManager.LoadScene("Init");
+    }
+
+    IEnumerator TimeToSceneMenu()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GointToMainMenu();
+        AudioManager.instance.musicSource.clip = null;
+        AudioManager.instance.PlayMusic("Level1", true);
+    }
+
+    private void GoToMenu()
+    {
+        StartCoroutine(TimeToSceneMenu());
+    }
+
+
+    private void GoToLevel()
+    {
+        StartCoroutine(TimeToScene());
+    }
+
     public void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

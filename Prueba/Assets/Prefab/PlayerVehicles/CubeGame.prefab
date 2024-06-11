@@ -88,8 +88,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ParticleDeath: {fileID: 6556670272840722353, guid: 6c1e6fef0f78f584b86ddb77b31a51c0, type: 3}
+  ParticleWin: {fileID: 6556670272840722353, guid: af49e6ac513a4da419608b31d2487987, type: 3}
   modelsPlayer:
   - {fileID: 1710435844952880000}
+  timer: 0
+  timeBool: 0
+  timeBuffer: 0.15
 --- !u!65 &979301230158454455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -124,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 19.7
-  rotationSpeed: 420
+  rotationSpeed: 430
   Speed: 100
   floor:
     serializedVersion: 2

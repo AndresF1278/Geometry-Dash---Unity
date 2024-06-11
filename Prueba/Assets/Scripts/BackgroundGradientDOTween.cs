@@ -18,7 +18,7 @@ public class BackgroundGradientDOTween : MonoBehaviour
     }
     public void ChangeColor(Color Colorfinal, float Time) 
     {
-        mainCamera.DOColor(Colorfinal, Time);
+        mainCamera.DOColor(Colorfinal, Time).SetEase(Ease.Linear);
     } 
 
 }

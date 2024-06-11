@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class ShipMove : MonoBehaviour
@@ -21,22 +22,29 @@ public class ShipMove : MonoBehaviour
     {
 
 
-
-
         if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
         {
 
                 if (Physics.gravity.y > 0)
                 {
+                    //rb.velocity += new Vector3(0, -speed * Time.deltaTime, 0);
                     rb.velocity += new Vector3(0, -speed * Time.deltaTime, 0);
                 }
                 else
                 {
-                    rb.velocity += new Vector3(0, speed * Time.deltaTime, 0);
+                    //rb.velocity += new Vector3(0, speed * Time.deltaTime, 0);
+                    rb.velocity += new Vector3(0,  speed * Time.deltaTime, 0);
+
                 }
 
 
         }
+
+
+
+
+
+        LimitYVelocity();
         //rb.velocity = new Vector3(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -18, 18), rb.velocity.z);
         body.transform.rotation = Quaternion.Euler(rb.velocity.y, 180f, transform.rotation.z);
 
@@ -52,6 +60,26 @@ public class ShipMove : MonoBehaviour
             body.transform.rotation = Quaternion.Euler(rb.velocity.y, 180, -180f);
             bodyCube.transform.localPosition = new Vector3(-0.074f, -0.416f, -0.128f);
             bodyCube.transform.rotation = Quaternion.Euler(0, 180, -180);
+        }
+
+    }
+
+
+    void LimitYVelocity()
+    {
+        if (rb == null) return;
+
+
+        if (Physics.gravity.y > 0)
+        {
+            float clampedYVelocity = Mathf.Clamp(rb.velocity.y, -16, 12);
+            rb.velocity = new Vector3(rb.velocity.x, clampedYVelocity, rb.velocity.z);
+
+        }
+        else
+        {
+            float clampedYVelocity = Mathf.Clamp(rb.velocity.y, -12, 20);
+            rb.velocity = new Vector3(rb.velocity.x, clampedYVelocity, rb.velocity.z);
         }
 
     }

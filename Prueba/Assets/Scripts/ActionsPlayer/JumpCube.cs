@@ -41,7 +41,11 @@ public class JumpCube : MonoBehaviour
            
             if (Input.GetKey(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
-                Jump();
+                if (!GameManager.Instance.IsPaused)
+                {
+                    Jump();
+                }
+               
             }
            
         }
@@ -51,7 +55,10 @@ public class JumpCube : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0))
             {
-                Jump();
+                if (!GameManager.Instance.IsPaused)
+                {
+                    Jump();
+                }
             }
           
         }
@@ -123,7 +130,7 @@ public class JumpCube : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            Debug.Log("perroo");
+          ;
         }
 
     }

@@ -143,8 +143,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ParticleDeath: {fileID: 6556670272840722353, guid: 6c1e6fef0f78f584b86ddb77b31a51c0, type: 3}
+  ParticleWin: {fileID: 6556670272840722353, guid: af49e6ac513a4da419608b31d2487987, type: 3}
   modelsPlayer:
   - {fileID: 921426284293796445}
+  timer: 0
+  timeBool: 0
+  timeBuffer: 0.15
 --- !u!114 &3928852459528969860
 MonoBehaviour:
   m_ObjectHideFlags: 0

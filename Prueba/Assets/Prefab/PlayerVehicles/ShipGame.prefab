@@ -110,9 +110,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ParticleDeath: {fileID: 6556670272840722353, guid: 6c1e6fef0f78f584b86ddb77b31a51c0, type: 3}
+  ParticleWin: {fileID: 6556670272840722353, guid: af49e6ac513a4da419608b31d2487987, type: 3}
   modelsPlayer:
   - {fileID: 9037447514985827169}
   - {fileID: 6768281725244113470}
+  timer: 0
+  timeBool: 0
+  timeBuffer: 0.15
 --- !u!54 &2586195981650362437
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -152,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99394a68c2f39144b9d57de3bd0805bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 180
+  speed: 150
   body: {fileID: 9037447514985827169}
   bodyCube: {fileID: 1637901690669014113}
   playerController: {fileID: 0}

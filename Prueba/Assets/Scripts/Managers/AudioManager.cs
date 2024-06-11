@@ -26,16 +26,25 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
+
     private void Start()
     {
+
         musicSource.volume = currentMusicVolume;
         sfxSource.volume = 1f;
-        PlayMusic("Level1");
+        PlayMusic("Init", false);
+        GameManager.Instance.MainMenu += PlayMusicInit;
     }
 
 
-    public void PlayMusic(string name)
+    public void PlayMusic(string name, bool InstantSong)
     {
+        if (InstantSong)
+        {
+            musicSource.clip = null;
+        }
+
         Soundss s = Array.Find(musicSounds, x => x.nameSound == name);
 
         if (s == null)
@@ -118,6 +127,14 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.volume = volume;
     }
+
+    private void PlayMusicInit()
+    {
+        //musicSource.clip = null;
+        PlayMusic("Init", false);
+        Debug.Log("Hola");
+    }
+
 }
 
 [System.Serializable]

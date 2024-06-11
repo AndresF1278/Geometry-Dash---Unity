@@ -15,7 +15,13 @@ public class PlayerControllers : MonoBehaviour
     [SerializeField] private LayerMask layerOrbs;
     private Orbs currentOrb;
     public GameObject ParticleDeath;
+    public GameObject ParticleWin;
     public List<GameObject>  modelsPlayer;
+
+    [SerializeField] private float timer;
+    [SerializeField] private bool timeBool;
+    [SerializeField] private float timeBuffer = 0.2f;
+
 
     public void ChangeGravityPlayer()
     {
@@ -43,8 +49,10 @@ public class PlayerControllers : MonoBehaviour
 
     private void Start()
     {
+        timer = 0;
+        timeBool = false;
 
-        if(Physics.gravity.y > 0)
+        if (Physics.gravity.y > 0)
         {
             gravityNormal = false;
         }
@@ -56,11 +64,40 @@ public class PlayerControllers : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.IsPaused)
+        {
+            AudioManager.instance.musicSource.Pause();
+            CanvasManager.instance.ShowCanvasPause();
+            GameManager.Instance.OnPause();
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.IsPaused)
+        {
+            AudioManager.instance.musicSource.UnPause();
+            CanvasManager.instance.HideAllCanvas();
+            GameManager.Instance.OnPause(false);
+        }
+
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
+            timeBool = true;
+            timer = 0;
+
             if (DetectOrb())
             {
                 currentOrb.SelectMethodEffect(GetComponent<Rigidbody>());
+            }
+        }
+
+        if (timeBool)
+        {
+            timer += Time.deltaTime;
+
+            if (timer < timeBuffer && DetectOrb())
+            {
+                currentOrb.SelectMethodEffect(GetComponent<Rigidbody>());
+                timer = 0;
+                timeBool = false;
             }
         }
 
@@ -117,15 +154,28 @@ public class PlayerControllers : MonoBehaviour
         StartCoroutine(TimeToDeath());
 
     }
+    public void PlayerWinEffect()
+    {
+        foreach (GameObject item in modelsPlayer)
+        {
+            item.SetActive(false);
+        }
+        GameObject ParticleDeathInstance = Instantiate(ParticleWin, transform.position, Quaternion.identity);
+
+    }
+
+
+
     IEnumerator TimeToDeath()
     {
         yield return new WaitForSeconds(0.6f);
         
-        GameManager.Instance.ResetLevel();
+        GameManager.Instance.TriggerResetLevel();
 
         AudioManager.instance.musicSource.Play();
     }
 
+    
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

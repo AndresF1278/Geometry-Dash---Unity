@@ -45,6 +45,7 @@ public class BallMove : MonoBehaviour
         {
             if( Ground && NearGround() && !playerController.DetectOrb())
             {
+                
                 GravityChange();
             }
          
